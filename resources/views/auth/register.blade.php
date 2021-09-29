@@ -8,6 +8,7 @@
 <section class=" bg-blueGray-50">
 <div class="w-full lg:w-6/12 px-4 mx-auto pt-6">
   <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
+    <h1 class="font-medium text-2xl mt-3 text-center">Register</h1>
 
     <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
       <div class="text-blueGray-400 text-center mb-3 font-bold">
