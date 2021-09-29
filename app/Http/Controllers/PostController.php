@@ -95,7 +95,7 @@ class PostController extends Controller
     {
         $post = DB::table('posts')->where('id', $id)->first();
 
-        dump($post);
+
 
         return view('post.edit', compact('post'));
     }
