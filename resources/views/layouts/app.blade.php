@@ -9,45 +9,44 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
 </head>
-<body class="bg-gray-700">
-    <nav class="flex flex-wrap justify-between w-screen h-20 text-white bg-gray-800 md:flex-nowrap">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url('/post') }}">
-                {{ config('app.name', 'Simple CRUD') }}
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+<body class="font-sans bg-gray-800 ">
+    <nav class="border-b border-gray-500">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between px-4 py-6">
+            <ul class="flex flex-col md:flex-row  items-center text-white">
+                <li>
+                <a href="{{ url('/post') }}" >
+                    {{ config('app.name', 'Simple CRUD') }}
+                </a>
+            </li>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <!-- Left Side Of Navbar -->
-                <ul class="navbar-nav mr-auto">
+            </ul>
 
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="navbar-nav ml-auto">
-                    <!-- Authentication Links -->
+            <div class="flex flex-col md:flex-row items-center text-white">
+                <ul class="flex flex-col md:flex-row  items-center">
                     @guest
                         @if (Route::has('login'))
-                            <li class="nav-item">
+                            <li >
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
                         @endif
-
+                                <span class="mx-2"> | </span>
                         @if (Route::has('register'))
-                            <li class="nav-item">
+                            <li>
                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                             </li>
                         @endif
                     @else
-                        <li class="nav-item dropdown">
-                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ Auth::user()->name }}
-                            </a>
+                    <ul class="flex flex-col md:flex-row  items-center">
 
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                        <li>
+                            {{ Auth::user()->name }}
+                        </li>
+                        <span class="mx-2"> | </span>
+
+                        <li >
+
+                            <div class="flex flex-col md:flex-row  items-center">
+                                <a class="flex flex-col md:flex-row  items-center" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -58,8 +57,16 @@
                                 </form>
                             </div>
                         </li>
+                    </ul>
                     @endguest
+
                 </ul>
+
+                <!-- <div class="md:ml-4 mt-3 md:mt-0">
+                        <a href="">
+                            <img src="/img/avatar.jpg" alt="avatar" class="rounded-full w-8 h-8">
+                        </a>
+                </div> -->
             </div>
         </div>
     </nav>
@@ -73,13 +80,9 @@
     <script>
         //message with toastr
         @if(session()->has('success'))
-
             toastr.success('{{ session('success') }}', 'BERHASIL!');
-
         @elseif(session()->has('error'))
-
             toastr.error('{{ session('error') }}', 'GAGAL!');
-
         @endif
     </script>
 </body>
