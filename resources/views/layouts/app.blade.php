@@ -37,6 +37,12 @@
                         @endif
                     @else
                     <ul class="flex flex-col md:flex-row  items-center">
+
+                        <li>
+                            {{Auth::user()->name}}
+                        </li>
+
+                        <span class="mx-2"> | </span>
                         <li >
 
                             <div class="flex flex-col md:flex-row  items-center">
